@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import { signOutAPI } from "../action";
 import { useLocation } from "react-router-dom";
+import { createAvatar } from "@dicebear/core";
+import { icons, identicon } from "@dicebear/collection";
 
 const Container = styled.div`
   background-color: #fff;
@@ -200,12 +202,21 @@ function Header(props) {
     }
     return "";
   }
+  let seed = props?.user?.displayName ? props.user.displayName : "default";
+  const avatar = createAvatar(identicon, {
+    seed: seed,
+  });
+  const pfp = avatar.toDataUriSync();
+  const logo = createAvatar(icons, {
+    seed: "HiddIN",
+  });
+  const logopfp = logo.toDataUriSync();
   return (
     <Container>
       <Content>
         <Logo>
           <a href="/feed">
-            <img src="/images/home-logo.svg" alt="" />
+            <img src="/images/newlogo.svg" alt="" />
           </a>
         </Logo>
         <Search>
@@ -253,11 +264,7 @@ function Header(props) {
             </NavList>
             <User>
               <a>
-                {props.user && props.user.photoURL ? (
-                  <img src={props.user.photoURL} alt="" />
-                ) : (
-                  <img src="/images/user.svg" alt="" />
-                )}
+                <img src={pfp} alt="pfp" />
                 <span>
                   Me <img src="/images/down-icon.svg" alt="" />
                 </span>

@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { createAvatar } from "@dicebear/core";
+import { identicon } from "@dicebear/collection";
 
 const Container = styled.div`
   grid-area: left;
@@ -23,6 +25,21 @@ const UserInfo = styled.div`
   padding: 12px 12px 16px;
   word-wrap: break-word;
   word-break: break-word;
+  img {
+    box-shadow: none;
+    background: url(${(props) => props.photoUrl});
+    width: 72px;
+    height: 72px;
+    box-sizing: border-box;
+    background-clip: content-box;
+    background-color: #fff;
+    background-position: center;
+    /* background-size: 60%; */
+    background-repeat: no-repeat;
+    border: 2px solid white;
+    margin: -38px auto 12px;
+    border-radius: 50%;
+  }
 `;
 
 const CardBackground = styled.div`
@@ -138,16 +155,18 @@ const CommunityCard = styled(ArtCard)`
 `;
 
 function Left(props) {
-  let photoUrl = props?.user?.photoURL
-    ? props.user.photoURL
-    : "/images/photo.svg";
+  let seed = props?.user?.displayName ? props.user.displayName : "default";
+  const avatar = createAvatar(identicon, {
+    seed: seed,
+  });
+  const pfp = avatar.toDataUriSync();
   return (
     <Container>
       <ArtCard>
         <UserInfo>
           <CardBackground />
           <a>
-            <Photo photoUrl={photoUrl} />
+            <img src={pfp} alt="pfp" />
             <Link>
               Welcome, {props?.user ? props.user.displayName : "there"}!
             </Link>

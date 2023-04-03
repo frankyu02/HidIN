@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import JobBoard from "./jobBoard";
+import UserForm from "./form";
 const Wrapper = styled.div`
   max-width: 1400px;
   margin: 0 auto;
@@ -17,7 +18,7 @@ function User(props) {
   const [filledForm, setFilledForm] = useState(false);
   return (
     <Wrapper>
-      {/* {filledForm ? (
+      {filledForm ? (
         <JobBoard />
       ) : (
         <div>
@@ -27,8 +28,8 @@ function User(props) {
           </h2>
           <UserForm setFilledForm={setFilledForm} />
         </div>
-      )} */}
-      <JobBoard />
+      )}
+      {/* <JobBoard /> */}
     </Wrapper>
   );
 }
