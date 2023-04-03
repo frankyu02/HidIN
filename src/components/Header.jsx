@@ -221,7 +221,7 @@ function Header(props) {
         </SignOutMobile>
         <Nav>
           <NavListWrap>
-            <NavList className={getClassNameFromPath("/")}>
+            <NavList className={getClassNameFromPath("/feed")}>
               <a href="/feed">
                 <img src="/images/nav-home.svg" alt="" />
                 <span>Home</span>
