@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import styled from "styled-components";
 import { signInAPI } from "../action";
 
@@ -142,6 +143,7 @@ const Google = styled.button`
 function Login(props) {
   return (
     <Container>
+      {props.user && <Redirect to="/feed" />}
       <Nav>
         <a href="/">
           <img src="/images/login-logo.svg" alt="" />
