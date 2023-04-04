@@ -1,3 +1,5 @@
+import { icons, identicon } from "@dicebear/collection";
+import { createAvatar } from "@dicebear/core";
 import Box from "@mui/material/Box";
 import React from "react";
 import { connect } from "react-redux";
@@ -201,12 +203,21 @@ function Header(props) {
     }
     return "";
   }
+  let seed = props?.user?.displayName ? props.user.displayName : "default";
+  const avatar = createAvatar(identicon, {
+    seed: seed,
+  });
+  const pfp = avatar.toDataUriSync();
+  const logo = createAvatar(icons, {
+    seed: "HiddIN",
+  });
+  const logopfp = logo.toDataUriSync();
   return (
     <Container>
       <Content>
         <Logo>
           <a href="/feed">
-            <img src="/images/home-logo.svg" alt="" />
+            <img src="/images/newlogo.svg" alt="" />
           </a>
         </Logo>
         <Search>
@@ -222,7 +233,7 @@ function Header(props) {
         </SignOutMobile>
         <Box display="flex">
           <NavListWrap>
-            <NavList className={getClassNameFromPath("/")}>
+            <NavList className={getClassNameFromPath("/feed")}>
               <a href="/feed">
                 <img src="/images/nav-home.svg" alt="" />
                 <span>Home</span>
@@ -251,11 +262,7 @@ function Header(props) {
             </NavList>
             <User>
               <a>
-                {props.user && props.user.photoURL ? (
-                  <img src={props.user.photoURL} alt="" />
-                ) : (
-                  <img src="/images/user.svg" alt="" />
-                )}
+                <img src={pfp} alt="pfp" />
                 <span>
                   Me <img src="/images/down-icon.svg" alt="" />
                 </span>

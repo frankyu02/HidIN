@@ -7,6 +7,7 @@ import HiringManager from "./HiringManager";
 import Home from "./Home";
 import Login from "./Login";
 import Recruiter from "./Recruiter";
+import User from "./user page/User";
 
 function App(props) {
   useEffect(() => {
@@ -31,6 +32,10 @@ function App(props) {
           <Route path="/hiring-manager">
             <Header />
             <HiringManager />
+          </Route>
+          <Route path="/user">
+            <Header />
+            <User />
           </Route>
         </Switch>
       </Router>

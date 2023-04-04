@@ -4,6 +4,8 @@ import ReactPlayer from "react-player";
 import styled from "styled-components";
 import { getArticlesAPI, updateArticleAPI } from "../action";
 import PostalModal from "./PostalModal";
+import { createAvatar } from "@dicebear/core";
+import { identicon } from "@dicebear/collection";
 
 const Container = styled.div`
   grid-area: main;
@@ -255,16 +257,16 @@ function Main(props) {
 
     props.likeHandler(payload);
   }
-
+  let seed = props?.user?.displayName ? props.user.displayName : "default";
+  const avatar = createAvatar(identicon, {
+    seed: seed,
+  });
+  const pfp = avatar.toDataUriSync();
   return (
     <Container>
       <ShareBox>
         <div>
-          {props?.user?.photoURL ? (
-            <img src={props.user.photoURL} alt="" />
-          ) : (
-            <img src="/images/user.svg" alt="" />
-          )}
+          <img src={pfp} alt="pfp" />
           <button
             onClick={clickHandler}
             disabled={props.loading ? true : false}
