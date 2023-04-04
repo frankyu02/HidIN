@@ -208,10 +208,6 @@ function Header(props) {
     seed: seed,
   });
   const pfp = avatar.toDataUriSync();
-  const logo = createAvatar(icons, {
-    seed: "HiddIN",
-  });
-  const logopfp = logo.toDataUriSync();
   return (
     <Container>
       <Content>
@@ -240,14 +236,14 @@ function Header(props) {
               </a>
             </NavList>
             <Box mr={1} />
-            <NavList>
+            <NavList className={getClassNameFromPath("/hiring-manager")}>
               <a href="/hiring-manager">
                 <img src="/images/nav-jobs.svg" alt="" />
                 <span>Hiring Manager View</span>
               </a>
             </NavList>
             <Box mr={2} />
-            <NavList>
+            <NavList className={getClassNameFromPath("/recruiter")}>
               <a href="/recruiter">
                 <img src="/images/nav-jobs.svg" alt="" />
                 <span>Recruiter View</span>
