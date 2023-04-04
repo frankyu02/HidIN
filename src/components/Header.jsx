@@ -1,8 +1,9 @@
+import Box from "@mui/material/Box";
 import React from "react";
 import { connect } from "react-redux";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { signOutAPI } from "../action";
-import { useLocation } from "react-router-dom";
 
 const Container = styled.div`
   background-color: #fff;
@@ -219,7 +220,7 @@ function Header(props) {
         <SignOutMobile onClick={() => props.signOut()}>
           <a>Sign Out</a>
         </SignOutMobile>
-        <Nav>
+        <Box display="flex">
           <NavListWrap>
             <NavList className={getClassNameFromPath("/")}>
               <a href="/feed">
@@ -227,28 +228,25 @@ function Header(props) {
                 <span>Home</span>
               </a>
             </NavList>
+            <Box mr={1} />
+            <NavList>
+              <a href="/hiring-manager">
+                <img src="/images/nav-jobs.svg" alt="" />
+                <span>Hiring Manager View</span>
+              </a>
+            </NavList>
+            <Box mr={2} />
+            <NavList>
+              <a href="/recruiter">
+                <img src="/images/nav-jobs.svg" alt="" />
+                <span>Recruiter View</span>
+              </a>
+            </NavList>
+            <Box mr={1} />
             <NavList className={getClassNameFromPath("/user")}>
               <a href="/user">
                 <img src="/images/nav-network.svg" alt="" />
                 <span>User View</span>
-              </a>
-            </NavList>
-            <NavList>
-              <a href="/feed">
-                <img src="/images/nav-jobs.svg" alt="" />
-                <span>Jobs</span>
-              </a>
-            </NavList>
-            <NavList>
-              <a href="/feed">
-                <img src="/images/nav-messaging.svg" alt="" />
-                <span>Messaging</span>
-              </a>
-            </NavList>
-            <NavList>
-              <a href="/feed">
-                <img src="/images/nav-notifications.svg" alt="" />
-                <span>Notifications</span>
               </a>
             </NavList>
             <User>
@@ -275,7 +273,7 @@ function Header(props) {
               </a>
             </Work>
           </NavListWrap>
-        </Nav>
+        </Box>
       </Content>
     </Container>
   );
