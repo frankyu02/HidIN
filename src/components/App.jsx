@@ -5,7 +5,6 @@ import { getUserAuth } from "../action";
 import Header from "./Header";
 import HiringManager from "./HiringManager";
 import Home from "./Home";
-import Login from "./Login";
 import Recruiter from "./Recruiter";
 import User from "./user page/User";
 
@@ -19,7 +18,8 @@ function App(props) {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Login />
+            <Header />
+            <Home />
           </Route>
           <Route path="/feed">
             <Header />
