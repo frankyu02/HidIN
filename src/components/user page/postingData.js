@@ -60,6 +60,16 @@ export const Jobs = [
       "Orange Sky Solutions is a business consulting firm that helps companies improve their operations and maximize profits. We are looking for a skilled business analyst to join our team and help us drive growth for our clients.",
   },
   {
+    id: 6,
+    company: "Meta",
+    title: "Business Analyst",
+    location: "Tokyo, Japan",
+    type: "Contract",
+    employees: "500-1000",
+    description:
+      "Meta is a business consulting firm that helps companies improve their operations and maximize profits. We are looking for a skilled business analyst to join our team and help us drive growth for our clients.",
+  },
+  {
     id: 7,
     company: "Yellow Brick Software",
     title: "Software Developer",
@@ -239,5 +249,35 @@ export const Jobs = [
     employees: "100-250",
     description:
       "Red Sky Ventures is a marketing agency that specializes in helping businesses increase their online presence. We are looking for a marketing manager to join our team and help us develop and implement successful marketing campaigns for our clients.",
+  },
+  {
+    id: 24,
+    company: "Microsoft",
+    location: "New York, NY",
+    title: "Marketing Manager",
+    type: "Full-time",
+    employees: "100-250",
+    description:
+      "Microsoft is a marketing agency that specializes in helping businesses increase their online presence. We are looking for a marketing manager to join our team and help us develop and implement successful marketing campaigns for our clients.",
+  },
+  {
+    id: 23,
+    company: "Google",
+    location: "Austin, TX",
+    title: "Video Producer",
+    type: "Contract",
+    employees: "50-100",
+    description:
+      "Google is a video production company that specializes in creating engaging and informative videos for businesses. We are looking for a video producer to join our team and help us create high-quality videos for our clients.",
+  },
+  {
+    id: 20,
+    company: "Apple",
+    location: "Denver, CO",
+    title: "Sales Manager",
+    type: "Full-time",
+    employees: "1000-1500",
+    description:
+      "Apple is a leading provider of innovative software solutions for businesses. We are looking for a talented sales manager to join our team and help us continue to grow our business and deliver exceptional results to our clients.",
   },
 ];

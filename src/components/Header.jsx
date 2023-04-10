@@ -1,4 +1,4 @@
-import { icons, identicon } from "@dicebear/collection";
+import { identicon } from "@dicebear/collection";
 import { createAvatar } from "@dicebear/core";
 import Box from "@mui/material/Box";
 import React from "react";
@@ -249,7 +249,14 @@ function Header(props) {
                 <span>Recruiter View</span>
               </a>
             </NavList>
-            <Box mr={1} />
+            <Box mr={2} />
+            <NavList className={getClassNameFromPath("/recruiter")}>
+              <a href="/explore">
+                <img src="/images/search-icon.svg" alt="" />
+                <Box mb={1} />
+                <span>Explore Companies</span>
+              </a>
+            </NavList>
             <NavList className={getClassNameFromPath("/user")}>
               <a href="/user">
                 <img src="/images/nav-network.svg" alt="" />

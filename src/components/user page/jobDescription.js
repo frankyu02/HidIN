@@ -1,9 +1,9 @@
-import styled from "styled-components";
 import {
   BsFillBriefcaseFill,
   BsFillBuildingFill,
   BsFillPencilFill,
 } from "react-icons/bs";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 60%;
@@ -41,6 +41,7 @@ export default function JobDescription({
   appliedJobs,
   setAppliedJobs,
   setOpen,
+  filter,
 }) {
   const found = appliedJobs.find((e) => e === job.id);
   const apply = () => {

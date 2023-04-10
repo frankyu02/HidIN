@@ -71,7 +71,7 @@ function Home(props) {
             <a>Hiring in a hurray..?</a>
           </h5>
           <p>
-            - Find talented pros in record time with LinkedIn and keep business
+            - Find talented pros in record time with HidIn and keep business
             moving.
           </p>
         </Section>

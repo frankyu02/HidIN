@@ -1,17 +1,11 @@
-import styled from "styled-components";
-import JobPostings from "./postings";
-import { Jobs } from "./postingData";
 import { useEffect, useState } from "react";
-import JobDescription from "./jobDescription";
+import styled from "styled-components";
 import ConfirmationModal from "./confirmationModal";
-import {
-  Box,
-  FormControl,
-  InputLabel,
-  Menu,
-  MenuItem,
-  Select,
-} from "@mui/material";
+import JobDescription from "./jobDescription";
+import { Jobs } from "./postingData";
+import JobPostings from "./postings";
+
+import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -32,6 +26,9 @@ export default function JobBoard() {
   const [applied, setApplied] = useState([]);
   const [open, setOpen] = useState(false);
   const [jobs, setJobs] = useState(Jobs);
+  const urlParams = new URLSearchParams(window.location.search);
+  const company = urlParams.get("company");
+  console.log(window);
   const locations = [
     "All",
     "New York, NY",
@@ -86,11 +83,13 @@ export default function JobBoard() {
       <Wrapper>
         <JobPostings
           jobs={jobs}
+          filter={company}
           curJob={curPosting}
           setCurjob={setCurPosting}
         />
         <JobDescription
           job={curPosting}
+          filter={company}
           appliedJobs={applied}
           setAppliedJobs={setApplied}
           setOpen={setOpen}

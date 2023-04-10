@@ -214,7 +214,8 @@ export default function UserForm({ setFilledForm }) {
           <option value="">--Please choose an option--</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
-          <option value="other">Not Male/Female/Latino</option>
+          <option value="other">Non-binary</option>
+          <option value="other">Other</option>
         </select>
         <br />
         <label>Religious Beliefs:</label> <br />

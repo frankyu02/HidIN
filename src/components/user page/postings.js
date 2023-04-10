@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 const Wrapper = styled.div`
   width: 40%;
@@ -30,13 +31,20 @@ const Wrapper = styled.div`
   }
 `;
 
-export default function JobPostings({ jobs, curJob, setCurjob }) {
+export default function JobPostings({ jobs, curJob, setCurjob, filter }) {
   const handleJobSwap = (job) => {
     setCurjob(job);
   };
+  const [searchableJobs, setSearchableJobs] = useState(jobs);
+  useEffect(() => {
+    if (!filter) return;
+    if (jobs.filter((j) => j.company === filter).length === 0) return;
+    setCurjob(jobs.filter((j) => j.company === filter)[0]);
+    setSearchableJobs(jobs.filter((j) => j.company === filter));
+  }, [filter]);
   return (
     <Wrapper>
-      {jobs.map((job, index) => {
+      {searchableJobs.map((job, index) => {
         return (
           <div
             key={index}

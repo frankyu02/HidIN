@@ -2,11 +2,13 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { getUserAuth } from "../action";
+import Explore from "./Explore";
 import Header from "./Header";
 import HiringManager from "./HiringManager";
 import Home from "./Home";
 import Recruiter from "./Recruiter";
 import User from "./user page/User";
+import JobBoard from "./user page/jobBoard";
 
 function App(props) {
   useEffect(() => {
@@ -29,9 +31,17 @@ function App(props) {
             <Header />
             <Recruiter />
           </Route>
+          <Route path="/explore">
+            <Header />
+            <Explore />
+          </Route>
           <Route path="/hiring-manager">
             <Header />
             <HiringManager />
+          </Route>
+          <Route path="/job-board">
+            <Header />
+            <JobBoard />
           </Route>
           <Route path="/user">
             <Header />
