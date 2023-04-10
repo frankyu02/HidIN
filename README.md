@@ -5,8 +5,9 @@ Local Hosting information:
 **Steps to create local build:**
 
 ```
+in the src/firebase directory, create a new file config.js
+in config.js paste the config file values written in the project summary document
 npm install
 npm run start
 ```
 
-We have provided a .env file for the project with important keys. Please place the .env file in the root folder
