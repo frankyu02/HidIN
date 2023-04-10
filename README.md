@@ -8,3 +8,5 @@ Local Hosting information:
 npm install
 npm run start
 ```
+
+We have provided a .env file for the project with important keys. Please place the .env file in the root folder
