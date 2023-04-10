@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import { cloneDeep } from "lodash";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PieChart } from "react-minimal-pie-chart";
 import GridItem from "./GridItem";
 import { colMap } from "./constants/colMap";
@@ -105,13 +105,30 @@ const OptionList = ({ options, setSelected, selected, onDel }) => {
 
 const HiringManager = () => {
   const [selectedOps, setSelectedOps] = useState([]);
+  const [errMsg, setErrMsg] = useState("");
   const [ops, setOps] = useState([
     {
       label: "Hispanic",
       weight: 1,
     },
   ]);
+  useEffect(() => {
+    if (ops.length < 3) {
+      setErrMsg("Must have at least 3 categories");
+      return;
+    }
+    let total = 0;
+    for (let i = 0; i < ops.length; ++i) total += ops[i].weight;
+    if (ops.filter((o) => o.weight / total > 0.4).length > 0) {
+      setErrMsg(
+        "Cannot assign a weight greater than 40% for any one category. Please adjust your selections."
+      );
+      return;
+    }
+    setErrMsg("");
+  }, [ops]);
   console.log(ops);
+
   return (
     <Box sx={{ margin: "0 auto", maxWidth: "800px", marginTop: 3 }}>
       <Typography variant="h4">Set Filters</Typography>
@@ -194,7 +211,11 @@ const HiringManager = () => {
           >
             - Remove
           </Button>
+          <Typography style={{ color: "red", marginTop: 6, maxWidth: 400 }}>
+            {errMsg}
+          </Typography>
         </Box>
+
         <Box>
           <Typography variant="h5" style={{ textAlign: "center" }}>
             Applicant Pool
