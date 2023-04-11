@@ -6,7 +6,7 @@ Local Hosting information:
 
 ```
 in the src/firebase directory, create a new file config.js
-in config.js paste the config file values written in the project summary document
+in config.js paste the config file values written in the project description document
 npm install
 npm run start
 ```
